@@ -18,24 +18,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="360Market" />
-        <meta-data
-            android:name="JPUSH_CHANNEL"
-            android:value="360Market" />
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="e2cddda1c0037e576ebabaa280a5705a" />
-        <!-- Required. AppKey copied from Portal -->
-        <meta-data
-            android:name="JPUSH_APPKEY"
-            android:value="68b6a532b29bb61ac492ad3f" />
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="51442df356240b6e5e001762" >
-        </meta-data>
-
+       
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
