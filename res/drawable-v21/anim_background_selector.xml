@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:state_pressed="true"><set>
+			<objectAnimator android:duration="@android:integer/config_mediumAnimTime" android:propertyName="backgroundColor" android:valueFrom="#ff0000" android:valueTo="#CC0066" android:valueType="intType"/>
+		</set></item>
+	<item android:state_pressed="false"><set>
+			<objectAnimator android:duration="@android:integer/config_mediumAnimTime" android:propertyName="backgroundColor" android:valueFrom="#CC0066" android:valueTo="#ff0000" android:valueType="intType"/>
+		</set></item>
+</selector>

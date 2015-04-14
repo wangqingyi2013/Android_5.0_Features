@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:orientation="vertical"
+		android:paddingBottom="20dp">
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_y_selector"
+			android:text="y"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_x_selector"
+			android:text="x"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="60dp"
+			android:layout_margin="10dp"
+			android:stateListAnimator="@drawable/anim_trans_z_selector"
+			android:text="translation Z"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_trans_x_selector"
+			android:text="translation X"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_trans_y_selector"
+			android:text="translation Y"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_trans_xyz_selector"
+			android:text="translation xyz"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_rotation_x_selector"
+			android:text="rotation x"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_rotation_y_selector"
+			android:text="rotation y"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_alpha_selector"
+			android:text="alpha"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_scale_x_selector"
+			android:text="scale X"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_scale_y_selector"
+			android:text="scale Y"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_scale_xy_selector"
+			android:text="scale XY"/>
+		<Button
+			android:layout_width="300dp"
+			android:layout_height="40dp"
+			android:layout_margin="10dp"
+			android:background="@drawable/primary_item_selector"
+			android:stateListAnimator="@drawable/anim_background_selector"
+			android:text="backgroundColor"/>
+	</LinearLayout>
+</ScrollView>

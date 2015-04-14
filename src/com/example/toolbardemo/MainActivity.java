@@ -11,6 +11,9 @@ package com.example.toolbardemo;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,17 +24,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.toolbardemo.Fragment.AnimDrawableFragment;
+import com.example.toolbardemo.Fragment.CircularRevealFragment;
+import com.example.toolbardemo.Fragment.ClippingViewFragment;
+import com.example.toolbardemo.Fragment.MenuFragment;
+import com.example.toolbardemo.Fragment.MenuFragment.NavigationDrawerCallbacks;
+import com.example.toolbardemo.Fragment.RippleDrawableFragment;
+import com.example.toolbardemo.Fragment.ToolbarItemExchangeFragment;
+
 /**
  * The MainActivity represents
  * @version $Id$
  * @author wangqingyi
  * @datetime Nov 21, 2014 5:18:05 PM
  */
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements NavigationDrawerCallbacks {
 
 	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
+	private MenuFragment menuFragment;
 	Toolbar toolbar;
+	private int page;
 
 	/**
 	 * {@inheritDoc}
@@ -41,7 +54,9 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+		menuFragment = (MenuFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+		menuFragment.setUp(R.id.navigation_drawer, mDrawerLayout, 0);
 		toolbar = (Toolbar) findViewById(R.id.demo_toolbar);
 		setSupportActionBar(toolbar);
 
@@ -62,12 +77,13 @@ public class MainActivity extends ActionBarActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setShowHideAnimationEnabled(true);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
 		// put drawer toggle into toolbar
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 		mDrawerToggle.syncState();
 
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
 	}
 
 	//
@@ -143,6 +159,7 @@ public class MainActivity extends ActionBarActivity {
 			// Log.d("cek", "home selected");
 			// }
 			// });
+			changeMenu = true;
 			return true;
 		} else {
 			toolbar.inflateMenu(R.menu.main);
@@ -171,5 +188,62 @@ public class MainActivity extends ActionBarActivity {
 			return;
 		}
 		super.onBackPressed();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * @see com.example.toolbardemo.Fragment.MenuFragment.NavigationDrawerCallbacks#onNavigationDrawerItemSelected(int)
+	 */
+	@Override
+	public void onNavigationDrawerItemSelected(int position) {
+		page = position;
+		showFragment(position);
+	}
+
+	private void showFragment(int position) {
+		FragmentManager fragmentManager = getSupportFragmentManager();
+		FragmentTransaction ft = fragmentManager.beginTransaction();
+		ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+		Fragment f;
+		switch (position) {
+			case 0:
+				f = fragmentManager.findFragmentByTag("TodayScheduleFragment");
+				if (f == null) {
+					f = new ToolbarItemExchangeFragment();
+				}
+				ft.replace(R.id.content_frame, f, "TodayScheduleFragment").commit();
+				break;
+			case 1:
+				f = fragmentManager.findFragmentByTag("ScheduleReportFragment");
+				if (f == null) {
+					f = new RippleDrawableFragment();
+				}
+				ft.replace(R.id.content_frame, f, "ScheduleReportFragment").commit();
+				break;
+			case 2:
+				f = fragmentManager.findFragmentByTag("SettingFragment");
+				if (f == null) {
+					f = new AnimDrawableFragment();
+				}
+				ft.replace(R.id.content_frame, f, "SettingFragment").commit();
+				break;
+			case 3:
+				f = fragmentManager.findFragmentByTag("ClippingView");
+				if (f == null) {
+					f = new ClippingViewFragment();
+				}
+				ft.replace(R.id.content_frame, f, "ClippingView").commit();
+				break;
+			case 4:
+				f = fragmentManager.findFragmentByTag("CircularReveal");
+				if (f == null) {
+					f = new CircularRevealFragment();
+				}
+				ft.replace(R.id.content_frame, f, "CircularReveal").commit();
+				break;
+			default:
+
+				break;
+		}
 	}
 }
